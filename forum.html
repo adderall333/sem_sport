@@ -1,0 +1,42 @@
+<div class="module forum">
+    <div class="title">Форум</div>
+    <div class="thread-preview">
+        <div class="thread-title">
+            <a href="#" class="thread-link"  id="thread-link">Есть тут кто?</a>
+        </div>
+        <div class="thread-messages-count">
+            5 сообщений
+        </div>
+    </div>
+    <div class="thread-preview">
+        <div class="thread-title">
+            <a href="#" class="thread-link">Как же классно сыграл вчера Сибирский Тракторист</a>
+        </div>
+        <div class="thread-messages-count">
+            1 сообщений
+        </div>
+    </div>
+    <div class="thread-preview">
+        <div class="thread-title">
+            <a href="#" class="thread-link">Помогите научиться ставить, я всё время проигрываю</a>
+        </div>
+        <div class="thread-messages-count">
+            0 сообщений
+        </div>
+    </div>
+    <div class="thread-preview">
+        <div class="thread-title">
+            <a href="#" class="thread-link">Барселона или Реал? Месси или Роналду?</a>
+        </div>
+        <div class="thread-messages-count">
+            189324 сообщений
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#thread-link").click(function() {
+        makeNonActive();
+        $(".center").load("thread.html");
+    });
+</script>

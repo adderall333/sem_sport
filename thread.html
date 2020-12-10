@@ -1,0 +1,111 @@
+<div class="module thread" id="thread">
+    <div class="title">Есть тут кто?</div>
+    <div class="thread-message">
+        <div class="row">
+            <div class="col-2 sender-info text-center">
+                <div class="sender-pic">
+                    <img class="sender-img" src="img/069961aeb5f7833c410d50723c1c4968.gif">
+                </div>
+                <div class="sender-login">
+                    top1lawyer
+                </div>
+            </div>
+            <div class="col message-content">
+                Всем привет, меня зовут Харви Спектр. Я лучший адвокат в Нью-йорке, 
+                да и, пожалуй, во всём мире. Здесь я отдыхаю от работы и готов пообщаться.
+            </div>
+        </div>
+    </div>
+    <div class="thread-message">
+        <div class="row">
+            <div class="col-2 sender-info text-center">
+                <div class="sender-pic">
+                    <img class="sender-img" src="img/069961aeb5f7833c410d50723c1c4968.gif">
+                </div>
+                <div class="sender-login">
+                    top1lawyer
+                </div>
+            </div>
+            <div class="col message-content">
+                Почему все молчат, я вам не интересен?
+            </div>
+        </div>
+    </div>
+    <div class="thread-message">
+        <div class="row">
+            <div class="col-2 sender-info text-center">
+                <div class="sender-pic">
+                    <img class="sender-img" src="img/069961aeb5f7833c410d50723c1c4968.gif">
+                </div>
+                <div class="sender-login">
+                    top1lawyer
+                </div>
+            </div>
+            <div class="col message-content">
+                Ну и пожалуйста, ну и не надо, я могу и сам себя разговором развлесь.
+            </div>
+        </div>
+    </div>
+    <div class="thread-message">
+        <div class="row">
+            <div class="col-2 sender-info text-center">
+                <div class="sender-pic">
+                    <img class="sender-img" src="img/069961aeb5f7833c410d50723c1c4968.gif">
+                </div>
+                <div class="sender-login">
+                    top1lawyer
+                </div>
+            </div>
+            <div class="col message-content">
+                Да что здесь происходит? Я же не могу всё время сам с собой разговаривать!!
+            </div>
+        </div>
+    </div>
+    <div class="thread-message">
+        <div class="row">
+            <div class="col-2 sender-info text-center">
+                <div class="sender-pic">
+                    <img class="sender-img" src="img/069961aeb5f7833c410d50723c1c4968.gif">
+                </div>
+                <div class="sender-login">
+                    top1lawyer
+                </div>
+            </div>
+            <div class="col message-content">
+                Я тут один, да?(((
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="module write-message">
+    <div class="title">Написать сообщение</div>
+    <div class="form-group message-form">
+        <label for="message-text">Ведите сообщение</label>
+        <textarea class="form-control" rows="7" id="message-text"></textarea>
+    </div>
+    
+    <div class="form-button">
+        <button class="btn btn-danger" id="send-message">Отправить</button>
+    </div>
+</div>
+
+<script>
+    $("#send-message").click(function() {
+        var text = $("#message-text").val();
+        $("#thread").append(
+            '<div class="thread-message">' +
+            '<div class="row">' +
+            '<div class="col-2 sender-info text-center">' +
+            '<div class="sender-pic">' +
+            '<img class="sender-img" src="img/069961aeb5f7833c410d50723c1c4968.gif">' +
+            '</div>' +
+            '<div class="sender-login">top1lawyer</div>' +
+            '</div>' +
+            '<div class="col message-content">' + text + '</div>' +
+            '</div>' +
+            '</div>'
+        );
+        $("#message-text").val('');
+    });
+</script>

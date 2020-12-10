@@ -1,0 +1,145 @@
+<div class="module registration-module">
+    <div class="title">Регистрация</div>
+    <div class="registration-body">
+        <div class="form-row">
+            <div class="col form-group">
+                <label>Почта</label>
+                <input type="email" class="form-control" autocomplete="off" id="input-email">
+                <div id="email-feedback" class="invalid-feedback">Некорректная почта</div>
+            </div>
+            <div class=" col form-group">
+                <label>Логин</label>
+                <input type="text" class="form-control" autocomplete="off" id="input-login" aria-describedby="login-feedback">
+                <div id="login-feedback" class="invalid-feedback">Логин занят</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col form-group">
+                <label>Имя</label>
+                <input type="text" class="form-control" autocomplete="off" id="input-name">
+                <div id="name-feedback" class="invalid-feedback">Некорректное имя</div>
+            </div>
+            <div class=" col form-group">
+                <label>Фамилия</label>
+                <input type="text" class="form-control" autocomplete="off" id="input-surname">
+                <div id="surname-feedback" class="invalid-feedback">Некорректная фамилия</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Адрес</label>
+            <input type="text" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-row">
+            <div class="col form-group">
+                <label>Пароль</label>
+                <input type="password" class="form-control" id="input-password" aria-describedby="password-feedback">
+                <div id="password-feedback" class="invalid-feedback">Пароли не совпадают</div>
+            </div>
+            <div class="col form-group">
+                <label>Подтверждение пароля</label>
+                <input type="password" class="form-control" id="input-password2">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Фото</label>
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile02">
+                  <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                </div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label>Логин пользователя, посоветовавшего нашу платформу (не обязательно)</label>
+            <input type="text" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="input-check" aria-describedby="check-feedback" required>
+                <label class="form-check-label" for="invalidCheck">
+                Я даю согласие на обработку данных
+                </label>
+                <div  id="check-feedback" class="invalid-feedback">
+                Вы должны дать согласие перед регистрацией
+                </div>
+            </div>
+        </div>
+        <button id="signup" class="btn btn-auth">Зарегестрироваться</button>
+    </div>
+</div>
+
+<script>
+    $("#signup").click(function() {
+        let fullNameRegexp = /^[A-ZА-ЯЁ][a-zа-яё]+$/;
+        let emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+        $("#input-email").removeClass("is-invalid");
+        $("#input-name").removeClass("is-invalid");
+        $("#input-surname").removeClass("is-invalid");
+        $("#input-password").removeClass("is-invalid");
+        $("#input-password2").removeClass("is-invalid");
+        $("#input-login").removeClass("is-invalid");
+        $("#input-check").removeClass("is-invalid");
+
+        var email = $("#input-email").val();
+        var login = $("#input-login").val();
+        var name = $("#input-name").val();
+        var surname = $("#input-surname").val();
+        var password = $("#input-password").val();
+        var password2 = $("#input-password2").val();
+        var check = $("#input-check");
+
+        if (!check.is(':checked')) {
+            $("#input-check").addClass("is-invalid");
+            return;
+        }
+
+        if (!fullNameRegexp.test(name))
+        {
+            $("#input-name").addClass("is-invalid");
+            return;
+        }
+        
+        if (!fullNameRegexp.test(surname))
+        {
+            $("#input-surname").addClass("is-invalid");
+            return;
+        }    
+
+        if (!emailRegexp.test(email))
+        {
+            $("#input-email").addClass("is-invalid");
+            return;
+        }  
+
+        if (password != password2) {
+            $("#input-password").addClass("is-invalid");
+            $("#input-password2").addClass("is-invalid");
+            return;
+        }
+
+        for (var e of users) {
+            if (e.get("login") == login) {
+                $("#input-login").addClass("is-invalid");
+                return;
+            }
+        }
+
+        var newUser = new Map();
+        user.set("login", login);
+        user.set("password", password);
+        user.set("role", "user");
+        users.push(newUser);
+
+        $(".login").hide();
+        $(".registration").hide();
+        $(".profile").css("display", "block");
+        $(".logout").css("display", "block");
+
+        showEvents();
+        makeActive($("#events"));
+    });
+</script>
