@@ -66,6 +66,11 @@ admin.set("login", "admin");
 admin.set("password", "123456seven");
 admin.set("role", "admin");
 
+var suoerUser = new Map();
+user.set("login", "top1lawyer");
+user.set("password", "password");
+user.set("role", "user");
+
 var users = [user, admin];
 
 var active = null;
